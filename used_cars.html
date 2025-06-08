@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продажа поддержанных авто - Ihnsing AUTO TEILE</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Здесь добавлены стили для фоновой картинки страницы "Продажа поддержанных авто" */
+        body {
+            background-image: url('used_cars_bg.jpg'); /* Укажите правильный путь к вашей картинке */
+            background-size: cover; /* Картинка будет растягиваться на всю область, сохраняя пропорции */
+            background-repeat: no-repeat; /* Не повторять картинку */
+            background-position: center center; /* Центрировать картинку */
+            background-attachment: fixed; /* Фиксированный фон при прокрутке */
+        }
+
+        /* Если основной контент (main) имеет фон, который скрывает фоновую картинку body,
+           то нужно сделать main прозрачным или полупрозрачным */
+        main {
+            background-color: rgba(237, 225, 118, 0.6); /* Сделайте фон main полупрозрачным, если он непрозрачный */
+            /* Или полностью прозрачным, если фон main не нужен: */
+            /* background-color: transparent; */
+        }
+    </style>
+</head>
+<body>
+    <div class="header-wrapper">
+       <div class="left-logo"><img src="left_logo.png" alt="Левый логотип"></div>
+        <div class="main-logo-wrapper">
+            <img src="ihnsing_logo.png" alt="Логотип ihnsing AUTO TEILE" class="main-logo">
+        </div>
+        <div class="right-contacts">
+            <p><b>Тел:</b> +7 (XXX) XXX-XX-XX</p>
+            <p><b>Фактический адрес:</b> Улица, дом, город</p>
+            <p><a href="https://www.google.com/maps/search/?api=1&query=Ваш+адрес" target="_blank">Наш адрес на карте</a></p>
+            <p><b>E-mail:</b> info@ihnsing.com</p>
+            <p>
+                <b>Меседжеры:</b>
+                <a href="https://www.instagram.com/" target="_blank"><img src="instagram_logo.png" alt="Instagram" style="height: 20px; vertical-align: middle;"></a>,
+                <a href="https://www.facebook.com/" target="_blank"><img src="facebook_logo.png" alt="Facebook" style="height: 20px; vertical-align: middle;"></a>,
+                <a href="https://www.whatsapp.com/" target="_blank"><img src="whatsapp_logo.png" alt="WhatsApp" style="height: 20px; vertical-align: middle;"></a>
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="parts.html">Магазин запчастей в наличие и под заказ</a></li>
+                <li><a href="tire_service.html">Шиномонтаж</a></li>
+                <li><a href="service.html">Услуги сервиса</a></li>
+                <li class="active"><a href="used_cars.html">Продажа поддержанных авто</a></li> <li><a href="evacuation.html">Эвакуация авто</a></li>
+                <li><a href="detailing.html">Детейлинг</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="main-content">
+                <h1>Продажа поддержанных автомобилей</h1>
+                <p>Добро пожаловать в раздел продажи поддержанных автомобилей! Мы предлагаем тщательно отобранные автомобили с пробегом, прошедшие полную проверку и предпродажную подготовку.</p>
+                <p>Наша цель - помочь вам найти идеальный автомобиль, который будет соответствовать вашим потребностям и бюджету. Следите за обновлениями, скоро здесь появится подробная информация о доступных моделях.</p>
+                 <div class="car-list">
+    <div class="car-item">
+        <h2>BMW 320i</h2>
+        <img src="pathtocar1.jpg" alt="Автомобиль 1">
+        <p>Год выпуска: 2007</p>
+        <p>Пробег: 216 000 км</p>
+        <p>Цена: 2500 €</p>
+        <p style ="color: rgb(253, 5, 5);"> Не бита, не крашена, с заводским запахом! </p>
+        <a href="car1_details.html" class="details-button">Подробнее</a>
+    </div>
+    <div class="car-item">
+        <h2>Марка и модель авто 2</h2>
+        <img src="path/to/car2.jpg" alt="Автомобиль 2">
+        <p>Год выпуска: 20XX</p>
+        <p>Пробег: YYY 000 км</p>
+        <p>Цена: YYY XXX руб.</p>
+        <p>Краткое описание автомобиля.</p>
+        <a href="car2_details.html" class="details-button">Подробнее</a>
+    </div>
+</div>
+            </div>
+        </main>
+        <div class="sidebar">
+            <div class="schedule">
+                <h2>Режим работы</h2>
+                <p><b>Пн-Пт:</b> 9:00 - 18:00</p>
+                <p><b>Сб:</b> 10:00 - 15:00</p>
+                <p><b>Вс:</b> Выходной</p>
+            </div>
+            <div class="contact-auto-sales">
+                <h2>Свяжитесь с нами по вопросам покупки авто:</h2>
+                <p><b>Телефон:</b> +7 (XXX) XXX-XX-XX (Отдел продаж)</p>
+                <p><b>Email:</b> auto-sales@ihnsing.com</p>
+            </div>
+        </div>
+        </div>
+</body>
+</html>
