@@ -4,23 +4,22 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    padding: 0; /* Исправлено: 10 без px было некорректно. Вернул на 0 для согласованности с вашей предыду версией. */
+    padding: 0;
     background-color: #ffffff; /* Белый фон по умолчанию */
-    color: #000000; /* Основной цвет текста по умолчанию, будет переопределяться */
+    color: #000000; /* Основной цвет текста по умолчанию */
     overflow-x: hidden; /* Скрываем горизонтальную полосу прокрутки */
-    /* УБРАЛИ фоновое изображение из body - теперь оно будет только для .main-index-bg */
 }
 
 /* Стили для шапки сайта */
 .header-wrapper {
     background-color: #000000; /* Черный фон шапки */
     overflow: hidden;
-    height: 200px; /* Высота шапки */
+    height: 200px; /* Высота шапки для десктопа */
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Размещаем элементы по краям */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 10px; /* Уменьшенный отступ справа и слева */
+    padding: 0 10px;
 }
 
 .left-logo {
@@ -38,18 +37,21 @@ body {
 
 .main-logo-wrapper {
     display: flex;
-    justify-content: center; /* Центрируем основной логотип */
+    justify-content: center;
     align-items: center;
-    max-height: 110px; /* Еще немного уменьшаем максимальную высоту контейнера */
+    max-height: 110px;
+    flex-grow: 1; /* Позволим центральному логотипу занимать доступное пространство */
 }
 
 .main-logo {
     max-height: 100%;
-    height: 200px; /* Убедимся, что логотип достаточно большой */
+    height: 200px;
+    width: auto; /* Добавим auto, чтобы изображение не искажалось */
+    object-fit: contain; /* Обеспечивает, что изображение впишется без обрезки */
 }
 
 .right-contacts {
-    color: #e7c622; /* Желтоватый цвет контактной информации */
+    color: #e7c622;
     text-align: right;
     display: flex;
     flex-direction: column;
@@ -66,7 +68,7 @@ body {
 }
 
 .right-contacts a {
-    color: #43f317; /* Зеленый цвет ссылок в контактах */
+    color: #43f317;
     text-decoration: none;
 }
 
@@ -81,7 +83,7 @@ body {
     margin: 20px auto;
     padding: 0;
     background-color: transparent;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Светлая тень */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 /* Стили для навигационного меню */
@@ -93,7 +95,7 @@ nav {
     border-right: 1px solid #F5DEB3;
     border-radius: 8px 0 0 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-     background-color: rgba(0, 187, 244, 0.785);
+    background-color: rgba(0, 187, 244, 0.785); /* Ваш голубой фон */
 }
 
 nav ul {
@@ -110,7 +112,7 @@ nav ul li a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: #000000;
+    color: #000000; /* Черный текст на желтом фоне */
     background-color: #FFD700;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -131,7 +133,7 @@ nav ul li a.active {
 main {
     flex-grow: 1;
     padding: 20px;
-    background-color: rgba(190, 180, 109, 0.8); /* Полупрозрачный белый фон (0.5 = 50%) */
+    background-color: rgba(190, 180, 109, 0.8); /* Ваш оливковый/бежевый фон */
     margin: 0 20px;
     border-radius: 8px;
     color: #121212; /* Темно-серый цвет текста */
@@ -158,16 +160,16 @@ main {
     flex-shrink: 0;
     flex-grow: 0;
     padding: 20px;
-    background-color: rgba(207, 24, 24, 0.6); /* Закомментированный фон */
+    background-color: rgba(207, 24, 24, 0.6); /* Ваш красный фон */
     border-left: 1px solid #F5DEB3;
     border-radius: 0 8px 8px 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .schedule {
-    background-color: transparent;
-    padding: 0;
-    border-radius: 0;
+    background-color: transparent; /* Убрал фон, теперь он на sidebar */
+    padding: 0; /* Убрал отступы, теперь они на sidebar */
+    border-radius: 0; /* Убрал скругление, теперь оно на sidebar */
 }
 
 .schedule h2 {
@@ -189,6 +191,138 @@ main {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: rgba(0, 51, 255, 0.785); /* Почти белый фон */
-    color: #000000; /* ИЗМЕНЕНО: Цвет текста на главной странице - темно-серый, для читаемости */
- }
+    background-color: rgba(0, 51, 255, 0.785); /* Ваш синий фон для главной страницы */
+    color: #ffffff; /* !!! ИЗМЕНЕНО: Белый текст для главной страницы, чтобы быть видимым на синем фоне/темном изображении */
+}
+
+
+/* ======================================================= */
+/* АДАПТИВНЫЙ ДИЗАЙН: Медиазапросы для мобильных устройств */
+/* ======================================================= */
+
+/* Точка останова для планшетов и мобильных устройств (например, до 768px) */
+@media (max-width: 768px) {
+    /* --- Шапка --- */
+    .header-wrapper {
+        flex-direction: column; /* Элементы шапки располагаются вертикально */
+        height: auto; /* Высота шапки автоматически подстраивается под содержимое */
+        padding: 10px; /* Увеличим padding для лучшего внешнего вида */
+        align-items: center; /* Центрируем элементы по горизонтали */
+    }
+
+    .left-logo,
+    .main-logo-wrapper,
+    .right-contacts {
+        margin: 5px 0; /* Добавляем вертикальные отступы между элементами шапки */
+        max-width: 100%; /* Убедимся, что они занимают всю ширину */
+        text-align: center; /* Центрируем текст в контактах */
+        margin-right: 0; /* Убираем специфичный отступ справа */
+    }
+
+    .main-logo {
+        height: 120px; /* Уменьшим высоту основного логотипа на мобильных */
+    }
+    
+    .right-contacts p,
+    .right-contacts a {
+        white-space: normal; /* Позволяем тексту переноситься на новую строку */
+        overflow: visible; /* Убираем скрытие текста */
+        text-overflow: clip; /* Убираем многоточие */
+        font-size: 0.9em; /* Немного уменьшим шрифт для контактов */
+    }
+
+
+    /* --- Основной контейнер --- */
+    .container {
+        flex-direction: column; /* Элементы (меню, контент, сайдбар) располагаются вертикально */
+        margin: 10px auto; /* Меньший отступ сверху/снизу */
+        max-width: 95%; /* Занимает 95% ширины viewport */
+        box-shadow: none; /* Можно убрать тень для упрощения на мобильных */
+    }
+
+    /* --- Меню, основной контент, сайдбар --- */
+    nav,
+    main,
+    .sidebar {
+        width: 100%; /* Занимают всю доступную ширину */
+        margin: 10px 0; /* Вертикальные отступы между блоками */
+        border-radius: 8px; /* Скругление углов для всех сторон */
+        border: none; /* Убираем специфичные границы, которые были для десктопа */
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Легкая тень для разделения блоков */
+        padding: 15px; /* Немного уменьшим padding на мобильных */
+    }
+
+    /* Убираем специфичные границы для nav и sidebar */
+    nav {
+        border-right: none;
+        order: 2; /* Меняем порядок: меню после основного контента */
+    }
+
+    main {
+        margin: 0; /* Убираем горизонтальные margin-ы, так как width: 100% */
+        order: 1; /* Основной контент первым */
+    }
+
+    .sidebar {
+        border-left: none;
+        order: 3; /* Сайдбар последним */
+    }
+
+    /* --- Навигационное меню (для мобильных) --- */
+    nav ul {
+        display: flex; /* Сделаем пункты меню горизонтальными */
+        flex-wrap: wrap; /* Если не помещаются, переносятся */
+        justify-content: center; /* Центрируем элементы меню */
+    }
+
+    nav ul li {
+        margin: 5px 10px; /* Меньшие отступы между пунктами меню */
+    }
+
+    nav ul li a {
+        padding: 8px 12px; /* Меньший padding для пунктов меню */
+        font-size: 0.9em; /* Немного уменьшим шрифт */
+    }
+
+    /* --- Текст основного контента --- */
+    .main-content h1 {
+        font-size: 1.6em; /* Уменьшим размер заголовка */
+    }
+
+    .main-content p {
+        font-size: 0.9em; /* Немного уменьшим размер параграфов */
+    }
+
+    /* --- Сайдбар (для мобильных) --- */
+    .schedule h2 {
+        font-size: 1.1em;
+    }
+
+    .schedule p {
+        font-size: 0.85em;
+    }
+}
+
+/* Дополнительный медиазапрос для очень маленьких телефонов (ниже 480px) */
+@media (max-width: 480px) {
+    .main-logo {
+        height: 90px; /* Еще уменьшаем логотип */
+    }
+
+    .main-content h1 {
+        font-size: 1.4em;
+    }
+
+    .main-content p {
+        font-size: 0.85em;
+    }
+    
+    /* Если меню должно быть строго вертикальным на самых маленьких, раскомментируйте */
+    nav ul {
+        flex-direction: column; /* Пункты меню вертикально */
+        align-items: center;
+    }
+    nav ul li {
+        margin: 5px 0; /* Вертикальные отступы между пунктами меню */
+    }
+}
