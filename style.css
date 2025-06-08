@@ -95,8 +95,7 @@ nav {
     border-right: 1px solid #F5DEB3;
     border-radius: 8px 0 0 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    /* Дополнительный комментарий: Фон навигационного меню должен быть прозрачным. */
-    background-color: transparent;
+    background-color: transparent; /* Фон навигационного меню прозрачный. */
 }
 
 nav ul {
@@ -164,8 +163,7 @@ main {
     border-left: 1px solid #F5DEB3;
     border-radius: 0 8px 8px 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    /* Дополнительный комментарий: Фон сайдбара должен быть прозрачным. */
-    background-color: transparent;
+    background-color: transparent; /* Фон сайдбара прозрачный. */
 }
 
 .schedule {
@@ -213,9 +211,13 @@ main {
         align-items: center; /* Центрируем элементы по горизонтали */
     }
 
-    .left-logo,
+    /* Скрываем левый логотип на мобильных устройствах */
+    .left-logo {
+        display: none;
+    }
+
     .main-logo-wrapper,
-    .right-contacts {
+    .right-contacts { /* Удален .left-logo из этой группы, так как он теперь скрыт */
         margin: 5px 0; /* Добавляем вертикальные отступы между элементами шапки */
         max-width: 100%; /* Убедимся, что они занимают всю ширину */
         text-align: center; /* Центрируем текст в контактах */
