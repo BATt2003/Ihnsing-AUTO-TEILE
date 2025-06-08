@@ -132,8 +132,7 @@ nav ul li a.active {
 /* Стили для основного содержимого (по умолчанию для всех страниц, кроме главной) */
 main {
     flex-grow: 1;
-    /* ИЗМЕНЕНО: Уменьшен padding для десктопной версии */
-    padding: 10px; /* Было 20px, стало 10px */
+    padding: 10px; /* Уменьшен padding для десктопной версии */
     background-color: rgba(237, 225, 118, 0.8); /* Оливковый/бежевый фон для всех страниц, кроме главной */
     margin: 0 20px;
     border-radius: 8px;
@@ -143,12 +142,13 @@ main {
 
 /* Стили для содержимого внутри main */
 .main-content {
-    color: #000000; /* Черный цвет текста основного контента */
+    color: #000000;
 }
 
 .main-content h1 {
     margin-top: 0;
-    color: #030303; /* Черный цвет заголовка */
+    color: #030303;
+    text-align: center; /* Выравнивание текста по центру только для h1 на страницах с .main-content */
 }
 
 .main-content p {
@@ -160,15 +160,15 @@ main {
     width: 250px;
     flex-shrink: 0;
     flex-grow: 0;
-    padding: 20px; /* Здесь padding 20px остается для десктопной версии */
+    padding: 20px;
     border-left: 1px solid #F5DEB3;
     border-radius: 0 8px 8px 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    background-color: transparent; /* Фон сайдбара прозрачный. */
+    background-color: transparent;
 }
 
 .schedule {
-    background-color: transparent; /* Фон блока времени работы прозрачный */
+    background-color: transparent;
     padding: 0;
     border-radius: 0;
 }
@@ -195,6 +195,24 @@ main {
     background-color: transparent;
 }
 
+/* ИЗМЕНЕНО: Добавляем специфичные правила для главной страницы */
+main.main-index-bg {
+    /* Эти правила переопределяют или дополняют общие правила для main на главной странице */
+    padding: 10px; /* Убедимся, что padding применяется и здесь */
+    background-color: transparent; /* Переопределяем фон, чтобы использовалось фоновое изображение */
+    /* Если вы хотите, чтобы фон был только у body, а main был прозрачным,
+       то можно оставить его transparent. Если же фон должен быть у main,
+       то убедитесь, что background-image здесь. В вашем случае он уже задан выше. */
+}
+
+main.main-index-bg h2 {
+    text-align: center; /* Центрирование заголовка H1 на главной странице */
+}
+
+main.main-index-bg p {
+    text-align: left; /* Выравнивание параграфов по левому краю на главной странице */
+}
+
 
 /* ======================================================= */
 /* АДАПТИВНЫЙ ДИЗАЙН: Медиазапросы для мобильных устройств */
@@ -204,123 +222,123 @@ main {
 @media (max-width: 768px) {
     /* --- Шапка --- */
     .header-wrapper {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-        align-items: center;
-        margin-bottom: 0;
+        flex-direction: column; /* Элементы шапки располагаются вертикально */
+        height: auto; /* Высота шапки автоматически подстраивается под содержимое */
+        padding: 10px; /* Увеличим padding для лучшего внешнего вида */
+        align-items: center; /* Центрируем элементы по горизонтали */
+        margin-bottom: 0; /* Убираем нижний отступ шапки */
     }
 
-    /* Скрываем левый логотип на мобильных устройствах */
     .left-logo {
-        display: none;
+        display: none; /* Скрываем левый логотип на мобильных устройствах */
     }
 
     .main-logo-wrapper,
     .right-contacts {
-        margin: 5px 0;
+        margin: 5px 0; /* Отступы внутри шапки */
         max-width: 100%;
         text-align: center;
         margin-right: 0;
     }
 
     .main-logo {
-        height: 120px;
+        height: 120px; /* Уменьшим высоту основного логотипа на мобильных */
     }
     
     .right-contacts p,
     .right-contacts a {
-        white-space: normal;
-        overflow: visible;
-        text-overflow: clip;
-        font-size: 0.9em;
+        white-space: normal; /* Позволяем тексту переноситься на новую строку */
+        overflow: visible; /* Убираем скрытие текста */
+        text-overflow: clip; /* Убираем многоточие */
+        font-size: 0.9em; /* Немного уменьшим шрифт для контактов */
     }
+
 
     /* --- Основной контейнер --- */
     .container {
-        flex-direction: column;
-        margin: 0 auto; 
-        max-width: 95%;
-        box-shadow: none;
+        flex-direction: column; /* Элементы (меню, контент, сайдбар) располагаются вертикально */
+        margin: 0 auto; /* Убираем верхний и нижний отступы для контейнера */
+        max-width: 95%; /* Занимает 95% ширины viewport */
+        box-shadow: none; /* Можно убрать тень для упрощения на мобильных */
     }
 
     /* --- Меню, основной контент, сайдбар --- */
     nav,
     main,
     .sidebar {
-        width: 100%;
-        margin-top: 2px;
-        margin-bottom: 2px;
-        border-radius: 8px;
-        border: none;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-        /* ИЗМЕНЕНО: Уменьшаем внутренние отступы (padding) для мобильных версий */
-        padding: 5px 8px; /* Было 10px, теперь 5px сверху/снизу и 8px слева/справа */
+        width: 100%; /* Занимают всю доступную ширину */
+        margin-top: 2px; /* Очень маленький отступ сверху */
+        margin-bottom: 2px; /* Очень маленький отступ снизу */
+        border-radius: 8px; /* Скругление углов для всех сторон */
+        border: none; /* Убираем специфичные границы, которые были для десктопа */
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Легкая тень для разделения блоков */
+        padding: 5px 8px; /* Уменьшаем внутренние отступы (padding) для мобильных версий */
     }
     
-    /* Дополнительная корректировка для самого первого блока после шапки (навигации) */
     nav {
         border-right: none;
-        order: 1;
-        margin-top: 0;
+        order: 1; /* Навигационное меню первым */
+        margin-top: 0; /* Навигация прилегает к шапке */
     }
 
     main {
-        margin: 0;
-        margin-top: 2px;
-        margin-bottom: 2px;
-        order: 2;
+        margin: 0; /* Убираем горизонтальные margin-ы, так как width: 100% */
+        margin-top: 2px; /* Отступ от навигации */
+        margin-bottom: 2px; /* Отступ до сайдбара */
+        order: 2; /* Основной контент вторым */
     }
 
     .sidebar {
         border-left: none;
-        margin-top: 2px;
-        margin-bottom: 0;
-        order: 3;
+        margin-top: 2px; /* Отступ от основного контента */
+        margin-bottom: 0; /* Сайдбар прилегает к низу страницы/футеру */
+        order: 3; /* Сайдбар последним */
     }
 
     /* --- Навигационное меню (для мобильных) --- */
     nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: flex; /* Сделаем пункты меню горизонтальными */
+        flex-wrap: wrap; /* Если не помещаются, переносятся */
+        justify-content: center; /* Центрируем элементы меню */
         padding: 0;
-        width: 100%;
+        width: 100%; /* Убедимся, что ul занимает всю доступную ширину nav */
     }
 
     nav ul li {
-        flex-grow: 1;
-        flex-shrink: 1;
-        min-width: 120px;
-        max-width: 48%;
-        box-sizing: border-box;
-        margin: 3px;
+        flex-grow: 1; /* Позволяет элементам li расти */
+        flex-shrink: 1; /* Позволяет элементам li сжиматься */
+        min-width: 120px; /* Минимальная ширина для кнопки */
+        max-width: 48%; /* Максимальная ширина, чтобы обеспечить хотя бы 2 кнопки в ряд */
+        box-sizing: border-box; /* Учитываем padding и border в ширине */
+        margin: 3px; /* Единый margin для отступов между кнопками */
     }
 
     nav ul li a {
-        padding: 4px 6px;
-        font-size: 0.7em;
-        line-height: 1.2;
-        text-align: center;
-        white-space: normal;
-        word-break: break-word;
-        display: block;
-        height: 100%;
+        padding: 4px 6px; /* Еще уменьшаем padding */
+        font-size: 0.7em; /* Еще уменьшаем шрифт */
+        line-height: 1.2; /* Чтобы текст умещался в две строки */
+        text-align: center; /* Центрируем текст внутри кнопки */
+        white-space: normal; /* Позволяем тексту переноситься на новую строку */
+        word-break: break-word; /* Позволяет ломать длинные слова, если необходимо */
+        display: block; /* Убедимся, что ссылка ведет себя как блок */
+        height: 100%; /* Заполняем высоту li */
     }
 
     /* --- Текст основного контента --- */
     .main-content h1 {
-        font-size: 1.6em;
-        margin-top: 5px;
+        font-size: 1.6em; /* Уменьшим размер заголовка */
+        margin-top: 5px; /* Уменьшаем отступ сверху для заголовка */
+        text-align: center; /* Выравнивание текста по центру только для h1 в мобильной версии */
     }
 
     .main-content p {
-        font-size: 0.9em;
+        font-size: 0.9em; /* Немного уменьшим размер параграфов */
+        text-align: left; /* Возвращаем выравнивание по левому краю для p */
     }
 
     /* --- Сайдбар (для мобильных) --- */
     .schedule h2 {
-        margin-top: 5px;
+        margin-top: 5px; /* Уменьшаем отступ сверху для заголовка в сайдбаре */
         font-size: 1.1em;
     }
 
@@ -332,27 +350,27 @@ main {
 /* Дополнительный медиазапрос для очень маленьких телефонов (ниже 480px) */
 @media (max-width: 480px) {
     .main-logo {
-        height: 90px;
+        height: 90px; /* Еще уменьшаем логотип */
     }
 
     .main-content h1 {
-        font-size: 1.4em;
+        font-size: 1.4em; /* Еще уменьшим шрифт заголовка */
     }
 
     .main-content p {
-        font-size: 0.85em;
+        font-size: 0.85em; /* Еще уменьшим размер параграфов */
     }
     
     nav ul {
-        /* flex-direction: column; */
+        /* flex-direction: column; */ /* Пункты меню вертикально */
         /* align-items: center; */
     }
     nav ul li {
-        max-width: 45%;
-        min-width: 100px;
+        max-width: 45%; /* Чуть меньше 50%, чтобы дать место для margin */
+        min-width: 100px; /* Минимальная ширина, чтобы не схлопнуться */
     }
     nav ul li a {
-        font-size: 0.7em;
+        font-size: 0.7em; /* Возможно, еще немного уменьшить для очень маленьких экранов */
         padding: 4px 5px;
     }
 }
