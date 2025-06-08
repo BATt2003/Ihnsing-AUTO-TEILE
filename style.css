@@ -132,7 +132,8 @@ nav ul li a.active {
 /* Стили для основного содержимого (по умолчанию для всех страниц, кроме главной) */
 main {
     flex-grow: 1;
-    padding: 20px;
+    /* ИЗМЕНЕНО: Уменьшен padding для десктопной версии */
+    padding: 10px; /* Было 20px, стало 10px */
     background-color: rgba(237, 225, 118, 0.8); /* Оливковый/бежевый фон для всех страниц, кроме главной */
     margin: 0 20px;
     border-radius: 8px;
@@ -159,7 +160,7 @@ main {
     width: 250px;
     flex-shrink: 0;
     flex-grow: 0;
-    padding: 20px;
+    padding: 20px; /* Здесь padding 20px остается для десктопной версии */
     border-left: 1px solid #F5DEB3;
     border-radius: 0 8px 8px 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
@@ -168,8 +169,8 @@ main {
 
 .schedule {
     background-color: transparent; /* Фон блока времени работы прозрачный */
-    padding: 0; /* Убрал отступы, теперь они на sidebar */
-    border-radius: 0; /* Убрал скругление, теперь оно на sidebar */
+    padding: 0;
+    border-radius: 0;
 }
 
 .schedule h2 {
@@ -185,15 +186,13 @@ main {
 }
 
 /* Стили для фона на главной странице */
-/* Этот класс будет применяться только к элементу <main> на главной странице,
-   переопределяя его фон на изображение желтой кирпичной стены и устанавливая черный цвет текста. */
 .main-index-bg {
-    background-image: url('bg_said_index.jpg'); /* Ваше изображение желтой кирпичной стены */
+    background-image: url('bg_said_index.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    color: #000000; /* Цвет текста для содержимого внутри этого блока на главной странице - черный */
-    background-color: transparent; /* Фон задается через background-image, поэтому этот прозрачный */
+    color: #000000;
+    background-color: transparent;
 }
 
 
@@ -205,10 +204,11 @@ main {
 @media (max-width: 768px) {
     /* --- Шапка --- */
     .header-wrapper {
-        flex-direction: column; /* Элементы шапки располагаются вертикально */
-        height: auto; /* Высота шапки автоматически подстраивается под содержимое */
-        padding: 10px; /* Увеличим padding для лучшего внешнего вида */
-        align-items: center; /* Центрируем элементы по горизонтали */
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        align-items: center;
+        margin-bottom: 0;
     }
 
     /* Скрываем левый логотип на мобильных устройствах */
@@ -217,89 +217,110 @@ main {
     }
 
     .main-logo-wrapper,
-    .right-contacts { /* Удален .left-logo из этой группы, так как он теперь скрыт */
-        margin: 5px 0; /* Добавляем вертикальные отступы между элементами шапки */
-        max-width: 100%; /* Убедимся, что они занимают всю ширину */
-        text-align: center; /* Центрируем текст в контактах */
-        margin-right: 0; /* Убираем специфичный отступ справа */
+    .right-contacts {
+        margin: 5px 0;
+        max-width: 100%;
+        text-align: center;
+        margin-right: 0;
     }
 
     .main-logo {
-        height: 120px; /* Уменьшим высоту основного логотипа на мобильных */
+        height: 120px;
     }
     
     .right-contacts p,
     .right-contacts a {
-        white-space: normal; /* Позволяем тексту переноситься на новую строку */
-        overflow: visible; /* Убираем скрытие текста */
-        text-overflow: clip; /* Убираем многоточие */
-        font-size: 0.9em; /* Немного уменьшим шрифт для контактов */
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 0.9em;
     }
-
 
     /* --- Основной контейнер --- */
     .container {
-        flex-direction: column; /* Элементы (меню, контент, сайдбар) располагаются вертикально */
-        margin: 10px auto; /* Меньший отступ сверху/снизу */
-        max-width: 95%; /* Занимает 95% ширины viewport */
-        box-shadow: none; /* Можно убрать тень для упрощения на мобильных */
+        flex-direction: column;
+        margin: 0 auto; 
+        max-width: 95%;
+        box-shadow: none;
     }
 
     /* --- Меню, основной контент, сайдбар --- */
     nav,
     main,
     .sidebar {
-        width: 100%; /* Занимают всю доступную ширину */
-        margin: 10px 0; /* Вертикальные отступы между блоками */
-        border-radius: 8px; /* Скругление углов для всех сторон */
-        border: none; /* Убираем специфичные границы, которые были для десктопа */
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Легкая тень для разделения блоков */
-        padding: 15px; /* Немного уменьшим padding на мобильных */
+        width: 100%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        /* ИЗМЕНЕНО: Уменьшаем внутренние отступы (padding) для мобильных версий */
+        padding: 5px 8px; /* Было 10px, теперь 5px сверху/снизу и 8px слева/справа */
     }
-
-    /* Убираем специфичные границы для nav и sidebar */
+    
+    /* Дополнительная корректировка для самого первого блока после шапки (навигации) */
     nav {
         border-right: none;
-        order: 2; /* Меняем порядок: меню после основного контента */
+        order: 1;
+        margin-top: 0;
     }
 
     main {
-        margin: 0; /* Убираем горизонтальные margin-ы, так как width: 100% */
-        order: 1; /* Основной контент первым */
+        margin: 0;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        order: 2;
     }
 
     .sidebar {
         border-left: none;
-        order: 3; /* Сайдбар последним */
+        margin-top: 2px;
+        margin-bottom: 0;
+        order: 3;
     }
 
     /* --- Навигационное меню (для мобильных) --- */
     nav ul {
-        display: flex; /* Сделаем пункты меню горизонтальными */
-        flex-wrap: wrap; /* Если не помещаются, переносятся */
-        justify-content: center; /* Центрируем элементы меню */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+        width: 100%;
     }
 
     nav ul li {
-        margin: 5px 10px; /* Меньшие отступы между пунктами меню */
+        flex-grow: 1;
+        flex-shrink: 1;
+        min-width: 120px;
+        max-width: 48%;
+        box-sizing: border-box;
+        margin: 3px;
     }
 
     nav ul li a {
-        padding: 8px 12px; /* Меньший padding для пунктов меню */
-        font-size: 0.9em; /* Немного уменьшим шрифт */
+        padding: 4px 6px;
+        font-size: 0.7em;
+        line-height: 1.2;
+        text-align: center;
+        white-space: normal;
+        word-break: break-word;
+        display: block;
+        height: 100%;
     }
 
     /* --- Текст основного контента --- */
     .main-content h1 {
-        font-size: 1.6em; /* Уменьшим размер заголовка */
+        font-size: 1.6em;
+        margin-top: 5px;
     }
 
     .main-content p {
-        font-size: 0.9em; /* Немного уменьшим размер параграфов */
+        font-size: 0.9em;
     }
 
     /* --- Сайдбар (для мобильных) --- */
     .schedule h2 {
+        margin-top: 5px;
         font-size: 1.1em;
     }
 
@@ -311,7 +332,7 @@ main {
 /* Дополнительный медиазапрос для очень маленьких телефонов (ниже 480px) */
 @media (max-width: 480px) {
     .main-logo {
-        height: 90px; /* Еще уменьшаем логотип */
+        height: 90px;
     }
 
     .main-content h1 {
@@ -322,12 +343,16 @@ main {
         font-size: 0.85em;
     }
     
-    /* Если меню должно быть строго вертикальным на самых маленьких, раскомментируйте */
     nav ul {
-        flex-direction: column; /* Пункты меню вертикально */
-        align-items: center;
+        /* flex-direction: column; */
+        /* align-items: center; */
     }
     nav ul li {
-        margin: 5px 0; /* Вертикальные отступы между пунктами меню */
+        max-width: 45%;
+        min-width: 100px;
+    }
+    nav ul li a {
+        font-size: 0.7em;
+        padding: 4px 5px;
     }
 }
