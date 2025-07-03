@@ -92,7 +92,7 @@ nav {
     flex-shrink: 0;
     flex-grow: 0;
     padding: 20px;
-    border-right: 1px solid #F5DEB3;
+    /*border-right: 1px solid #F5DEB3;*/
     border-radius: 8px 0 0 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
     background-color: transparent; /* Фон навигационного меню прозрачный. */
@@ -161,10 +161,10 @@ main {
     flex-shrink: 0;
     flex-grow: 0;
     padding: 20px;
-    border-left: 1px solid #F5DEB3;
+    border-left: 1px solid #f5deb3;
     border-radius: 0 8px 8px 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    background-color: transparent;
+    background-color:#FFD700;
 }
 
 .schedule {
