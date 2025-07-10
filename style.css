@@ -123,10 +123,20 @@ nav ul li a:hover {
     color: #fff;
 }
 
-nav ul li a.active {
-    background-color: #DAA520;
-    color: #fff;
-    font-weight: bold;
+/* ОБНОВЛЕННЫЕ СТИЛИ для АКТИВНОГО пункта меню (в котором находится пользователь) */
+nav ul li.active a {
+    background-color: #DAA520; /* Более темный золотой/охра */
+    color: #FFF; /* Белый текст */
+    /* font-weight: bold; */ /* УБРАНО: Жирный шрифт */
+    cursor: default; /* Курсор по умолчанию, чтобы показать, что это текущая страница */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); /* Внутренняя тень для эффекта "нажатой" кнопки */
+}
+
+/* НОВОЕ ПРАВИЛО: Переопределяем стиль при наведении для активного пункта, чтобы он не менялся */
+nav ul li.active a:hover {
+    background-color: #DAA520; /* Остается темным золотым */
+    color: #FFF; /* Остается белым */
+    text-shadow: none; /* Убираем тень текста при наведении */
 }
 
 /* Стили для основного содержимого (по умолчанию для всех страниц, кроме главной) */
@@ -197,182 +207,176 @@ main {
 
 /* ИЗМЕНЕНО: Добавляем специфичные правила для главной страницы */
 main.main-index-bg {
-    /* Эти правила переопределяют или дополняют общие правила для main на главной странице */
-    padding: 10px; /* Убедимся, что padding применяется и здесь */
-    background-color: transparent; /* Переопределяем фон, чтобы использовалось фоновое изображение */
-    /* Если вы хотите, чтобы фон был только у body, а main был прозрачным,
-       то можно оставить его transparent. Если же фон должен быть у main,
-       то убедитесь, что background-image здесь. В вашем случае он уже задан выше. */
+    padding: 10px;
+    background-color: transparent;
 }
 
 main.main-index-bg h2 {
-    text-align: center; /* Центрирование заголовка H1 на главной странице */
+    text-align: center;
 }
 
 main.main-index-bg p {
-    text-align: left; /* Выравнивание параграфов по левому краю на главной странице */
+    text-align: left;
 }
 
 /* ======================================================= */
 /* АДАПТИВНЫЙ ДИЗАЙН: Медиазапросы для мобильных устройств */
 /* ======================================================= */
 
-/* Точка останова для планшетов и мобильных устройств (например, до 768px) */
 @media (max-width: 768px) {
     /* --- Шапка --- */
     .header-wrapper {
-        flex-direction: column; /* Элементы шапки располагаются вертикально */
-        height: auto; /* Высота шапки автоматически подстраивается под содержимое */
-        padding: 10px; /* Увеличим padding для лучшего внешнего вида */
-        align-items: center; /* Центрируем элементы по горизонтали */
-        margin-bottom: 0; /* Убираем нижний отступ шапки */
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        align-items: center;
+        margin-bottom: 0;
     }
 
     .left-logo {
-        display: none; /* Скрываем левый логотип на мобильных устройствах */
+        display: none;
     }
 
     .main-logo-wrapper,
     .right-contacts {
-        margin: 5px 0; /* Отступы внутри шапки */
+        margin: 5px 0;
         max-width: 100%;
         text-align: center;
         margin-right: 0;
     }
 
     .main-logo {
-        height: 120px; /* Уменьшим высоту основного логотипа на мобильных */
-    }
-    
-    .right-contacts p,
-    .right-contacts a {
-        white-space: normal; /* Позволяем тексту переноситься на новую строку */
-        overflow: visible; /* Убираем скрытие текста */
-        text-overflow: clip; /* Убираем многоточие */
-        font-size: 0.9em; /* Немного уменьшим шрифт для контактов */
+        height: 120px;
     }
 
+    .right-contacts p,
+    .right-contacts a {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 0.9em;
+    }
 
     /* --- Основной контейнер --- */
     .container {
-        flex-direction: column; /* Элементы (меню, контент, сайдбар) располагаются вертикально */
-        margin: 0 auto; /* Убираем верхний и нижний отступы для контейнера */
-        max-width: 95%; /* Занимает 95% ширины viewport */
-        box-shadow: none; /* Можно убрать тень для упрощения на мобильных */
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 95%;
+        box-shadow: none;
     }
 
     /* --- Меню, основной контент, сайдбар --- */
     nav,
     main,
     .sidebar {
-        width: 100%; /* Занимают всю доступную ширину */
-        margin-top: 2px; /* Очень маленький отступ сверху */
-        margin-bottom: 2px; /* Очень маленький отступ снизу */
-        border-radius: 8px; /* Скругление углов для всех сторон */
-        border: none; /* Убираем специфичные границы, которые были для десктопа */
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Легкая тень для разделения блоков */
-        padding: 5px 8px; /* Уменьшаем внутренние отступы (padding) для мобильных версий */
+        width: 100%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        padding: 5px 8px;
     }
-    
+
     nav {
         border-right: none;
-        order: 1; /* Навигационное меню первым */
-        margin-top: 0; /* Навигация прилегает к шапке */
+        order: 1;
+        margin-top: 0;
     }
 
     main {
-        margin: 0; /* Убираем горизонтальные margin-ы, так как width: 100% */
-        margin-top: 2px; /* Отступ от навигации */
-        margin-bottom: 2px; /* Отступ до сайдбара */
-        order: 2; /* Основной контент вторым */
+        margin: 0;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        order: 2;
     }
 
     .sidebar {
         border-left: none;
-        margin-top: 2px; /* Отступ от основного контента */
-        margin-bottom: 0; /* Сайдбар прилегает к низу страницы/футеру */
-        order: 3; /* Сайдбар последним */
+        margin-top: 2px;
+        margin-bottom: 0;
+        order: 3;
     }
 
     /* --- Навигационное меню (для мобильных) --- */
     nav ul {
-        display: flex; /* Сделаем пункты меню горизонтальными */
-        flex-wrap: wrap; /* Если не помещаются, переносятся */
-        justify-content: center; /* Центрируем элементы меню */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         padding: 0;
-        width: 100%; /* Убедимся, что ul занимает всю доступную ширину nav */
-        gap: 6px; /* НОВОЕ: Отступ между элементами */
+        width: 100%;
+        gap: 6px;
     }
 
     nav ul li {
-        flex-grow: 1; /* Позволяет элементам li расти */
-        flex-shrink: 1; /* Позволяет элементам li сжиматься */
-        min-width: 120px; /* Минимальная ширина для кнопки */
-        max-width: 48%; /* Максимальная ширина, чтобы обеспечить хотя бы 2 кнопки в ряд */
-        box-sizing: border-box; /* Учитываем padding и border в ширине */
-        /* УДАЛЕНО: margin: 3px; */ /* Убрали, т.к. используем gap */
+        flex-grow: 1;
+        flex-shrink: 1;
+        min-width: 120px;
+        max-width: 48%;
+        box-sizing: border-box;
     }
 
     nav ul li a {
-        padding: 2px 6px; /* Уменьшаем вертикальный padding */
-        font-size: 0.7em; /* Еще уменьшаем шрифт */
-        line-height: 1; /* Уменьшаем line-height для более компактного вида */
-        text-align: center; /* Центрируем текст внутри кнопки */
-        white-space: normal; /* Позволяем тексту переноситься на новую строку */
-        word-break: break-word; /* Позволяет ломать длинные слова, если необходимо */
-        display: block; /* Убедимся, что ссылка ведет себя как блок */
-        height: 100%; /* Заполняем высоту li */
-        
-        background-color: rgba(255, 215, 0, 0.7); /* Прозрачный золотисто-желтый */
-        border: 1px solid #DAA520; /* Тонкая рамка в цвет темного золота */
+        padding: 2px 6px;
+        font-size: 0.7em;
+        line-height: 1;
+        text-align: center;
+        white-space: normal;
+        word-break: break-word;
+        display: block;
+        height: 100%;
+        background-color: rgba(255, 215, 0, 0.7);
+        border: 1px solid #DAA520;
     }
 
-    /* --- Текст основного контента --- */
-    .main-content h1 {
-        font-size: 1.6em; /* Уменьшим размер заголовка */
-        margin-top: 5px; /* Уменьшаем отступ сверху для заголовка */
-        text-align: center; /* Выравнивание текста по центру только для h1 в мобильной версии */
+    /* ОБНОВЛЕННЫЕ СТИЛИ для АКТИВНОГО пункта меню в мобильной версии */
+    nav ul li.active a {
+        background-color: #DAA520;
+        color: #FFF;
+        /* font-weight: bold; */ /* УБРАНО: Жирный шрифт */
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
     }
-
-    .main-content p {
-        font-size: 0.9em; /* Немного уменьшим размер параграфов */
-        text-align: left; /* Возвращаем выравнивание по левому краю для p */
-    }
-
-    /* --- Сайдбар (для мобильных) --- */
-    .schedule h2 {
-        margin-top: 5px; /* Уменьшаем отступ сверху для заголовка в сайдбаре */
-        font-size: 1.1em;
-    }
-
-    .schedule p {
-        font-size: 0.85em;
+    nav ul li.active a:hover {
+        background-color: #DAA520;
+        color: #FFF;
+        text-shadow: none;
     }
 }
 
 /* Дополнительный медиазапрос для очень маленьких телефонов (ниже 480px) */
 @media (max-width: 480px) {
     .main-logo {
-        height: 90px; /* Еще уменьшаем логотип */
+        height: 90px;
     }
 
     .main-content h1 {
-        font-size: 1.4em; /* Еще уменьшим шрифт заголовка */
+        font-size: 1.4em;
     }
 
     .main-content p {
-        font-size: 0.85em; /* Еще уменьшим размер параграфов */
+        font-size: 0.85em;
     }
-    
+
     nav ul li {
-        max-width: 45%; /* Чуть меньше 50%, чтобы дать место для gap */
-        min-width: 100px; /* Минимальная ширина, чтобы не схлопнуться */
-        /* margin: 3px; - УДАЛЕНО, т.к. gap уже установлен в 768px */
+        max-width: 45%;
+        min-width: 100px;
     }
     nav ul li a {
-        font-size: 0.7em; /* Возможно, еще немного уменьшить для очень маленьких экранов */
-        padding: 1px 5px; /* Еще уменьшаем вертикальный padding */
-        line-height: 1; /* Убедимся, что line-height остался компактным */
-        /* background-color: rgba(255, 215, 0, 0.5); */ /* Если нужно сделать фон еще прозрачнее */
+        font-size: 0.7em;
+        padding: 1px 5px;
+        line-height: 1;
+    }
+
+    /* ОБНОВЛЕННЫЕ СТИЛИ для АКТИВНОГО пункта меню на очень маленьких экранах */
+    nav ul li.active a {
+        background-color: #DAA520;
+        color: #FFF;
+        /* font-weight: bold; */ /* УБРАНО: Жирный шрифт */
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    }
+    nav ul li.active a:hover {
+        background-color: #DAA520;
+        color: #FFF;
+        text-shadow: none;
     }
 }
