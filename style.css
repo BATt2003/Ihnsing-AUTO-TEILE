@@ -22,18 +22,7 @@ body {
     padding: 0 10px;
 }
 
-.left-logo {
-    max-height: 100px;
-    display: flex;
-    align-items: center;
-}
 
-.left-logo img {
-    max-height: 100%;
-    height: auto;
-    width: auto;
-    max-width: 250px;
-}
 
 .main-logo-wrapper {
     display: flex;
@@ -256,9 +245,7 @@ main.main-index-bg p {
         margin-bottom: 0;
     }
 
-    .left-logo {
-        display: none;
-    }
+   
 
     .main-logo-wrapper,
     .right-contacts {
