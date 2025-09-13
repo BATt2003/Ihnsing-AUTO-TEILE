@@ -186,7 +186,7 @@ main {
 
 /* Стили для фона на главной странице */
 .main-index-bg {
-    background-image: url('bg_said_index.webp');
+    background-image: url('/images/bg_said_index.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -406,4 +406,5 @@ main.main-index-bg p {
         margin-top: 5px;
         margin-bottom: 5px;
     }
+
 }
