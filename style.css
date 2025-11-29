@@ -1,0 +1,537 @@
+/* style.css - ИСПРАВЛЕННАЯ ВЕРСИЯ */
+
+/* Общие стили для всего сайта */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
+    overflow-x: hidden;
+}
+
+/* Стили для шапки сайта */
+.header-wrapper {
+    background-color: #000000;
+    overflow: hidden;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.main-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 110px;
+    flex-grow: 1;
+}
+
+.main-logo {
+    max-height: 100%;
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ПРАВЫЙ БЛОК - ТОЧНО КАК В ТЕСТОВОМ ФАЙЛЕ, НО С ПЕРЕНОСОМ */
+.right-contacts {
+    color: #e7c622;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    margin-right: 40px;
+    flex-shrink: 0;
+}
+
+/* ИСПРАВЛЕНИЕ: разрешаем перенос вместо обрезания */
+.right-contacts p {
+    margin: 5px 0;
+    white-space: normal; /* ВМЕСТО nowrap - разрешаем перенос */
+    overflow: visible; /* ВМЕСТО hidden - показываем весь текст */
+    text-overflow: clip; /* ВМЕСТО ellipsis - без многоточия */
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.right-contacts a {
+    color: #43f317;
+    text-decoration: none;
+}
+
+.right-contacts a:hover {
+    text-decoration: underline;
+}
+
+/* Остальные стили остаются как в нашем файле */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+nav {
+    width: 200px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding: 20px;
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #FFD700;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #DAA520;
+    color: #fff;
+}
+
+nav ul li.active a {
+    background-color: #DAA520;
+    color: #FFF;
+    cursor: default;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav ul li.active a:hover {
+    background-color: #DAA520;
+    color: #FFF;
+    text-shadow: none;
+}
+
+main {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: rgba(237, 225, 118, 0.8);
+    margin: 0 20px;
+    border-radius: 8px;
+    color: #121212;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.main-content {
+    color: #000000;
+}
+
+.main-content h1 {
+    margin-top: 0;
+    color: #030303;
+    text-align: center;
+}
+
+.main-content p {
+    line-height: 1.6;
+}
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding: 20px;
+    border-left: 1px solid #f5deb3;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    background-color:#FFD700;
+}
+
+.schedule {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.schedule h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.schedule p {
+    margin-bottom: 5px;
+    color: #050505;
+}
+
+.main-index-bg {
+    background-image: url('../images/bg_said_index.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: #000000;
+    background-color: transparent;
+}
+
+main.main-index-bg {
+    padding: 10px;
+    background-color: transparent;
+}
+
+main.main-index-bg h2 {
+    text-align: center;
+}
+
+main.main-index-bg p {
+    text-align: left;
+}
+
+.main-content-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.sidebar-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 1024px) {
+    .header-wrapper {
+        height: 180px;
+    }
+    
+    .main-logo {
+        height: 160px;
+    }
+    
+    .right-contacts {
+        max-width: 400px;
+        margin-right: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-wrapper {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .main-logo-wrapper,
+    .right-contacts {
+        margin: 5px 0;
+        max-width: 100%;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .main-logo {
+        height: 120px;
+    }
+
+    .right-contacts p {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 0.9em;
+    }
+
+    .container {
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 95%;
+        box-shadow: none;
+    }
+
+    nav,
+    main,
+    .sidebar {
+        width: 100%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        padding: 5px 8px;
+    }
+
+    nav {
+        border-right: none;
+        order: 1;
+        margin-top: 0;
+    }
+
+    main {
+        margin: 0;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        order: 2;
+    }
+
+    .sidebar {
+        border-left: none;
+        margin-top: 2px;
+        margin-bottom: 0;
+        order: 3;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+        width: 100%;
+        gap: 6px;
+    }
+
+    nav ul li {
+        flex-grow: 1;
+        flex-shrink: 1;
+        min-width: 120px;
+        max-width: 48%;
+        box-sizing: border-box;
+    }
+
+    nav ul li a {
+        padding: 2px 6px;
+        font-size: 0.7em;
+        line-height: 1;
+        text-align: center;
+        white-space: normal;
+        word-break: break-word;
+        display: block;
+        height: 100%;
+        background-color: rgba(255, 215, 0, 0.7);
+        border: 1px solid #DAA520;
+    }
+
+    nav ul li.active a {
+        background-color: #DAA520;
+        color: #FFF;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    }
+    nav ul li.active a:hover {
+        background-color: #DAA520;
+        color: #FFF;
+        text-shadow: none;
+    }
+
+    .main-content-image,
+    .sidebar-image {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-logo {
+        height: 90px;
+    }
+
+    .main-content h1 {
+        font-size: 1.4em;
+    }
+
+    .main-content p {
+        font-size: 0.85em;
+    }
+
+    nav ul li {
+        max-width: 45%;
+        min-width: 100px;
+    }
+    nav ul li a {
+        font-size: 0.7em;
+        padding: 1px 5px;
+        line-height: 1;
+    }
+
+    nav ul li.active a {
+        background-color: #DAA520;
+        color: #FFF;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    }
+    nav ul li.active a:hover {
+        background-color: #DAA520;
+        color: #FFF;
+        text-shadow: none;
+    }
+
+    .main-content-image,
+    .sidebar-image {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+/* ДОПОЛНЕНИЯ ДЛЯ ШАПКИ - УЛУЧШЕННАЯ АДАПТИВНОСТЬ */
+.right-contacts {
+    color: #e7c622;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.right-contacts p {
+    margin: 4px 0;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.3;
+    word-wrap: break-word;
+    font-size: 0.95em;
+}
+
+/* Убираем инлайновые margin-right из HTML */
+.right-contacts[style*="margin-right"] {
+    margin-right: 20px !important;
+}
+
+/* Улучшенная мобильная версия шапки */
+@media (max-width: 768px) {
+    .header-wrapper {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 10px;
+        text-align: center;
+    }
+    
+    .main-logo-wrapper {
+        margin-bottom: 15px;
+    }
+    
+    .right-contacts {
+        text-align: center;
+        margin-right: 0 !important;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .right-contacts p {
+        font-size: 0.9em;
+        margin: 3px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .right-contacts p {
+        font-size: 0.85em;
+    }
+    
+    .right-contacts br {
+        display: none;
+    }
+}
+/* Стили для футера */
+footer {
+    background-color: #000000 !important;
+    color: #e7c622 !important;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+footer a {
+    color: #43f317 !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+/* Улучшение доступности */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Улучшение фокуса для клавиатурной навигации */
+a:focus, button:focus {
+    outline: 2px solid #43f317;
+    outline-offset: 2px;
+}
+/* ДОБАВИТЬ В МЕДИА-ЗАПРОСЫ */
+@media (max-width: 768px) {
+    nav ul li a {
+        font-size: 0.75em;
+        padding: 8px 5px;
+        line-height: 1.2;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+  /* Стили для центрированного изображения  */
+.center-image {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.center-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.instagram-btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.instagram-btn-below {
+    background: linear-gradient(45deg, #405DE6, #833AB4, #E1306C);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.instagram-btn-below:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #E1306C, #833AB4, #405DE6);
+}
