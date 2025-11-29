@@ -498,7 +498,7 @@ a:focus, button:focus {
         white-space: nowrap;
     }
 }
-  /* Стили для центрированного изображения  */
+ /* Старые стили для центрированного изображения - НЕ УДАЛЯТЬ */
 .center-image {
     text-align: center;
     margin: 30px 0;
@@ -511,6 +511,7 @@ a:focus, button:focus {
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
+/* Новые стили для кнопки под изображением - ДОБАВИТЬ */
 .instagram-btn-container {
     text-align: center;
     margin-top: 20px;
